@@ -1,12 +1,12 @@
 /* === steam.css === */
 body {
   font-family: 'Cinzel', serif;
-  background: linear-gradient(to bottom, #3e2723, #1b1b1b);
+  background: linear-gradient(to bottom, #2b1d0e, #1a0f07);
   color: #d7c7ad;
   margin: 0;
   padding: 2rem;
   text-align: center;
-  background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+  background-image: url('https://www.transparenttextures.com/patterns/metal.png');
 }
 
 h1 {
