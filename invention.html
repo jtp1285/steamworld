@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shark Tank Invention — Inspiration Gallery</title>
+  <!-- If this file is in the same folder as steam.css, this path is correct. 
+       If you move it into a subfolder later, change to href="/steam.css". -->
+  <link rel="stylesheet" href="steam.css" />
+  <style>
+    /* Simple gallery layout (kept local to this page) */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      text-align: left;
+    }
+    .gallery figure {
+      margin: 0;
+      background: rgba(0,0,0,0.25);
+      border: 2px solid var(--border, #8d6e63);
+      border-radius: 10px;
+      box-shadow: var(--shadow-md, 0 6px 14px rgba(0,0,0,0.45));
+      overflow: hidden;
+    }
+    .gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .gallery figcaption {
+      padding: 0.5rem 0.75rem;
+      color: var(--text, #e9dcc4);
+      font-size: 0.95rem;
+    }
+    .top-actions {
+      display: flex; 
+      justify-content: center; 
+      gap: 0.75rem; 
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shark Tank Invention Inspiration</h1>
+
+  <div class="top-actions">
+    <a href="grade7.html" class="btn">← Back to Grade 7</a>
+  </div>
+
+  <main class="projects">
+    <section>
+      <p class="lead">Browse example builds for ideas—wheel choices, chassis shapes, axle guides, and airflow paths. Then sketch your own design before you start building.</p>
+
+      <div class="gallery">
+        <!-- Replace image paths with your own files -->
+        <figure>
+          <img src="images/ballooncar-cd-wheels.jpg" alt="Balloon car using old CDs as wheels with straw axles">
+          <figcaption>CD wheels + straw axles for low rolling resistance.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ballooncar-balsa-chassis.jpg" alt="Lightweight balsa chassis with centered balloon nozzle">
+          <figcaption>Light balsa chassis; centered nozzle for straight thrust.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ballooncar-foam-core.jpg" alt="Foam-core body with skewers as axles">
+          <figcaption>Foam-core body with skewer axles and straw bushings.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ballooncar-stability-fins.jpg" alt="Car with small vertical fins for directional stability">
+          <figcaption>Stability fins help keep the car tracking straight.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ballooncar-axle-guides.jpg" alt="Close-up of axle guides to reduce friction">
+          <figcaption>Axle guides reduce friction and wobble.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ballooncar-large-rear-wheels.jpg" alt="Design with larger rear wheels and smaller front wheels">
+          <figcaption>Large rear / small front wheels to tweak gearing effect.</figcaption>
+        </figure>
+      </div>
+
+      <div class="button-container" style="margin-top:1.5rem;">
+        <a href="grade7.html" class="btn">Back to Projects</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
