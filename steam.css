@@ -1,65 +1,177 @@
-/* === steam.css === */
+/* === steam.css (final rev) === */
+/* Design tokens */
+:root {
+  --bg-top: #2b1d0e;
+  --bg-bottom: #1a0f07;
+  --text: #e9dcc4;
+  --muted: #d7c7ad;
+
+  --gold: #e0a96d;
+  --gold-light: #f5d7a1;
+  --bronze: #8d6e63;
+  --copper: #6d4c41;
+  --copper-dark: #53392f;
+
+  --card-bg: rgba(35, 24, 18, 0.75);
+  --border: #8d6e63;
+
+  --shadow-md: 0 6px 14px rgba(0,0,0,0.45);
+  --shadow-lg: 0 10px 24px rgba(0,0,0,0.55);
+
+  --radius: 12px;
+}
+
+/* Base / readability */
+* { box-sizing: border-box; }
+
+html {
+  min-height: 100%;
+  background-color: #1a0f07;
+  background-image:
+    url('steambackground.png'),
+    linear-gradient(to bottom, #2b1d0e, #1a0f07);
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed; /* optional */
+}
+
 body {
   font-family: 'Cinzel', serif;
-  background: linear-gradient(to bottom, #2b1d0e, #1a0f07);
-  color: #d7c7ad;
-  margin: 0;
-  padding: 2rem;
+  color: var(--muted);
+  margin: 0 auto; /* center content */
+  max-width: 1100px; /* readable width */
+  padding: 2rem 1.25rem;
   text-align: center;
-  background-image: url('steambackground.png');
+  line-height: 1.6;
+  font-size: 18px;
+  background: transparent; /* so html background shows through */
 }
 
 h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: #e0a96d;
-  text-shadow: 2px 2px 4px #000000;
+  font-size: 6rem;
+  font-weight: 900;
+  margin: 0 0 2rem;
+  letter-spacing: 1px;
+
+  /* Polished metal fill */
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 45%, #b67e3c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Outline + depth + glow */
+  -webkit-text-stroke: 1px #3b2a1a;
+  text-shadow:
+    3px 3px 6px #000,
+    -2px -2px 2px rgba(255,255,255,0.25),
+    0 0 14px rgba(224,169,109,0.8);
 }
 
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin: 1rem;
-  color: #ffffff;
-  background-color: #6d4c41;
-  text-decoration: none;
-  border-radius: 8px;
-  border: 2px solid #8d6e63;
-  transition: background 0.3s ease, transform 0.2s ease;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+p, li {
+  color: var(--text);
+  font-size: 1.125rem;
 }
 
-.btn:hover {
-  background-color: #8d6e63;
-  transform: scale(1.05);
-}
-
-.external {
-  background-color: #a1887f;
-  border: 2px solid #d7c7ad;
-}
-
+/* Buttons */
 .button-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  margin-bottom: 2rem;
 }
 
+.btn {
+  display: inline-block;
+  padding: 1rem 2.25rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+
+  background: linear-gradient(180deg, var(--copper) 0%, var(--copper-dark) 100%);
+  border: 2px solid var(--bronze);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--shadow-lg);
+  filter: brightness(1.28);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Variant for external link */
+.external {
+  background: linear-gradient(180deg, #a1887f 0%, #7d6a61 100%);
+  border-color: var(--muted);
+}
+
+/* Sections / cards */
 .projects section {
   margin: 2rem auto;
-  max-width: 600px;
-  background-color: rgba(109, 76, 65, 0.8);
-  padding: 1rem;
-  border-radius: 10px;
-  border: 2px solid #8d6e63;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  background-color: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: saturate(110%) blur(2px);
 }
 
+.projects h2 {
+  margin-top: 0.25rem;
+  color: var(--gold);
+  font-size: 1.75rem;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.projects p {
+  margin: 0.5rem 0 0;
+  color: var(--text);
+}
+
+/* Images */
 .projects img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  display: block;
+  border-radius: 10px;
   margin-top: 1rem;
-  border: 2px solid #8d6e63;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+/* Utilities */
+.lead { font-size: 1.25rem; color: var(--text); }
+
+/* Motion/accessibility preference */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* Responsive typography & spacing */
+@media (max-width: 900px) {
+  h1 { font-size: 4.5rem; }
+  .btn { font-size: 1.0625rem; padding: 0.9rem 1.8rem; }
+  body { font-size: 17px; padding: 1.5rem 1rem; }
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 3.25rem; }
+  .projects section { padding: 1rem; }
+  .btn { width: 100%; max-width: 420px; }
 }
