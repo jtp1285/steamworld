@@ -120,6 +120,36 @@ p, li {
   border-color: var(--muted);
 }
 
+/* Two-column projects grid */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+/* Center layout when there's only ONE project section (detail pages) */
+.projects:has(> section:only-child) {
+  /* one centered track instead of two */
+  grid-template-columns: minmax(0, 900px);
+  justify-content: center;   /* center the single track */
+  justify-items: stretch;    /* let the card fill that track */
+}
+
+/* Optional: make the single card fill the centered track cleanly */
+.projects:has(> section:only-child) > section {
+  max-width: none;  /* let the grid track control width */
+  margin: 0;        /* remove auto-centering that can fight the grid */
+  overflow: hidden; /* prevents images from bleeding past the card */
+}
+
+/* Center the image gallery inside detail pages */
+.projects:has(> section:only-child) .gallery {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;   /* centers the gallery grid inside the card */
+}
+
+
 /* Sections / cards */
 .projects section {
   margin: 2rem auto;
@@ -130,6 +160,14 @@ p, li {
   border: 2px solid var(--border);
   box-shadow: var(--shadow-md);
   backdrop-filter: saturate(110%) blur(2px);
+  display: flex;
+  flex-direction: column;
+}
+
+.projects section p:last-of-type {
+  margin-top: auto;
+  /* optional: center the button horizontally */
+  text-align: center;
 }
 
 .projects h2 {
@@ -168,6 +206,7 @@ p, li {
   h1 { font-size: 4.5rem; }
   .btn { font-size: 1.0625rem; padding: 0.9rem 1.8rem; }
   body { font-size: 17px; padding: 1.5rem 1rem; }
+  .projects { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
